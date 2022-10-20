@@ -212,8 +212,8 @@
             if (active) {
                 var time = parseInt((new Date() - startTime) / 1000);
                 var rest = period - time;
-                $("#time").html("残り時間:" + time);
-                $("#remain").html("経過時間:" + rest);
+                $("#time").html("経過時間:" + time);
+                $("#remain").html("残り時間:" + rest);
                 analog(rest);
 
                 if (rest <= 0) {
@@ -221,6 +221,17 @@
                     alarm();
                 }
 
+                if (rest <= 10) {
+                    active = true;
+                    alarm();
+                }
+
+                if (rest == 0) {
+                    active = false;
+                    alarm();
+                }
+
+                
             }
 
 
